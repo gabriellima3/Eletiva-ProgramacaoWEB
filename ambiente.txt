@@ -1,0 +1,10 @@
+vscode
+laravel - framework
+composer 
+
+php
+apache
+mysql
+
+php oo
+mvc

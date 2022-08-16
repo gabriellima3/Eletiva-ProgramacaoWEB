@@ -8,3 +8,9 @@ mysql
 
 php oo
 mvc
+
+ composer create-project laravel/laravel
+
+ php artisan
+ php artisan serve
+localhost:8000

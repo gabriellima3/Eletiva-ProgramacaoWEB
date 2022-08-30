@@ -13,24 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::prefix('usuarios')->group(function(){
-    Route::get('', function(){
-        return 'usuario';
-    });
-    Route::get('/{id}', function($id){
-        return 'Mostrar detalhes de usuario' .$id;
-    });
-    Route::get('/{id}/tags', function($id){
-        return 'Tags Usuarios' .$id;
-    });
-
-});
-
-Route::get('/users/{id}', function($id = null){
-    return 'Id Usuario' .$id;
-});
-
-
 Route::get('/', function () {
     return view('welcome');
 });

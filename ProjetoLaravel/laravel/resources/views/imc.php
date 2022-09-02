@@ -84,33 +84,39 @@
             </tr>
         </table>
 
-        <?php     
-        
-        function IMC()
+        <?php
+
+        function imc($altura, $peso)
         {
-            $peso = $_GET["peso"];
-            $altura = $_GET["altura"];
-            $imc = $peso/pow($altura, 2);
-            $printimc = number_format($imc, 2);
-            echo "Seu IMC é de $printimc";
-            echo "<br/>";
-            echo "Situação: ";
-            if ($imc <= 18.5) {
-                echo "Abaixo do peso";
-            } elseif ($imc >= 18.6 && $imc <= 24.9) {
-                echo "Peso ideal (parabéns)";
-            } elseif ($imc >= 25 && $imc <= 29.9) {
-                echo "Levemente acima do peso";
-            } elseif ($imc >= 30 && $imc <= 34.9) {
-                echo "Obesidade Grau I";
-            } elseif ($imc >= 35 && $imc <= 39.9) {
-                echo "Obesidade Grau II (severa)";
-            } elseif ($imc >= 40) {
-                echo "Obesidade Grau III (mórbida)";
-            }
+            $altura = str_replace(',', '.', $altura);
+            $altura = $altura * $altura;
+            $result = $peso / $altura;
+            return $result;
         }
+        $peso = $_GET["peso"];
+        $altura = $_GET["altura"];
+        $imc = imc($altura, $peso);
+        $imc = number_format($imc, 2, '.', '');
+        echo "Seu IMC é de $imc";
+        echo "<br/>";
+        echo "Situação: ";
+
+        if ($imc <= 18.5) {
+            echo "Abaixo do peso";
+        } elseif ($imc >= 18.6 && $imc <= 24.9) {
+            echo "Peso ideal (parabéns)";
+        } elseif ($imc >= 25 && $imc <= 29.9) {
+            echo "Levemente acima do peso";
+        } elseif ($imc >= 30 && $imc <= 34.9) {
+            echo "Obesidade Grau I";
+        } elseif ($imc >= 35 && $imc <= 39.9) {
+            echo "Obesidade Grau II (severa)";
+        } elseif ($imc >= 40) {
+            echo "Obesidade Grau III (mórbida)";
+        }
+
         $resultado = IMC();
-        return $resultado;
+        echo $resultado
         ?>
 
     </div>
